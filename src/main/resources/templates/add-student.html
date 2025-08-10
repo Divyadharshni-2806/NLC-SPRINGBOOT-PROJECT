@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            padding: 50px;
+            background: linear-gradient(to right, #d4fc79, #96e6a1);
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Add Student</h2>
+    <form th:action="@{/dashboard/save}" th:object="${student}" method="post">
+        <label>Name</label>
+        <input type="text" th:field="*{name}" required/>
+
+        <label>Email</label>
+        <input type="email" th:field="*{email}" required/>
+
+        <label>Date of Birth</label>
+        <input type="date" th:field="*{dateOfBirth}" required/>
+
+        <label>Address</label>
+        <input type="text" th:field="*{address}" required/>
+
+        <label>Mobile</label>
+        <input type="text" th:field="*{mobile}" required/>
+
+        <label>Date of Joining</label>
+        <input type="date" th:field="*{dateOfJoining}" required/>
+
+        <label>Date of Leaving</label>
+        <input type="date" th:field="*{dateOfLeaving}" required/>
+
+        <label>Payment Status</label>
+        <select th:field="*{status}" required>
+            <option value="">--Select--</option>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+        </select>
+
+        <button type="submit" class="btn-submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
